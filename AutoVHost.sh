@@ -59,7 +59,8 @@ if [ $? -ne 0 ] ; then
 fi
 
 mkdir /var/www/$vhost_name/public_html
-
+chcon -R unconfined_u:object_r:httpd_sys_rw_content_t:s0 /var/www/$vhost_name/
+chmod 577 -R /var/www/$vhost_name/
 
 ## DEFAULT HTML TEMPLATE
 cat > /var/www/$vhost_name/public_html/index.html <<EOF
