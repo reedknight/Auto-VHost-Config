@@ -5,6 +5,8 @@
 # Currently developing only for apache 2.4 on Fedora 23
 
 # Invocation ./AutoVHost.sh test.example.com
+# Add to httpd.conf the following commented line
+## Include /etc/httpd/vhost/*.conf
 
 if [[ $UID != 0 ]]; then
     echo "Please run this script with sudo:"
@@ -79,6 +81,7 @@ EOF
 ## TEMPLATE ENDS
 
 echo "Mission Successful! Configure hosts file and restart Apache!"
+echo "\n\nAdd line in httpd.conf: Include /etc/httpd/vhost/*.conf"
 
 
 
